@@ -1,0 +1,20 @@
+{
+  "name": "solana-yield-optimizer",
+  "version": "0.2.0",
+  "description": "Solana staking yield optimizer — powered by DeFiLlama + Jupiter",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test:apys": "node -e \"import('./tools/fetchApys.js').then(m => m.fetchApys({ topN: 5, stakingOnly: true }).then(p => console.log(JSON.stringify(p, null, 2))))\"",
+    "test:positions": "node -e \"import('./tools/getPositions.js').then(m => m.getPositions(process.env.SOLANA_WALLET).then(r => console.log(JSON.stringify(r, null, 2))))\"",
+    "test:report": "node tools/report.js --summary-only"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
